@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/c91f3ee834.js" crossorigin="anonymous"></script>
@@ -16,12 +16,13 @@
 		<main>
 			<h1>Weather App</h1>
 
-			<form action="" method="" class="search">
-				<input type="text" name="city" placeholder="Enter a city">
+			<form action="/temperature" method="POST" class="search">
+				<input type="text" name="cityname" placeholder="Enter a city">
 				<button type="submit">
 					<i class="fas fa-search"></i>
 				</button>
 			</form>
-		</main>
+        </main>
+        {% block body %} {% endblock %}
 	</body>
 </html>
