@@ -1,4 +1,11 @@
 {% extends 'index.html' %}
+
+{% block head %} 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/card.css') }}">
+
+{% endblock %}
+
+
 {%  block body %}
 <!-- <div>
     <h1>The current temperature of {{city}},{{cnty}} is : {{ temp }} degrees Celsius</h1>

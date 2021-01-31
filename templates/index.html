@@ -8,6 +8,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/c91f3ee834.js" crossorigin="anonymous"></script>
+		{% block head %} {% endblock %}
 
 		<title>Weather App</title>
 	</head>
@@ -23,6 +24,9 @@
 				</button>
 			</form>
         </main>
-        {% block body %} {% endblock %}
+
+        <section class = "results">
+        	{% block body %} {% endblock %}
+    	</section>
 	</body>
 </html>
