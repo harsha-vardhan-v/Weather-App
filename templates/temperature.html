@@ -11,11 +11,13 @@
     <h1>The current temperature of {{city}},{{cnty}} is : {{ temp }} degrees Celsius</h1>
 </div> -->
 
+{%for element in search_list:%}
 <div class="card">
-	<h3 class="city">{{city}}, {{cnty}}</h3>
-	<h3 class="temp">{{ temp }} °C </h3>
+	<h3 class="city">{{element['name']}}, {{element['country']}}</h3>
+	<h3 class="temp">{{ element['temp'] }} °C </h3>
 	<i class="fas fa-cloud-sun-rain"></i>
 	<h3 class="desc">Cloudy</h3>
 </div>
+{%endfor%}
 
 {% endblock %}
