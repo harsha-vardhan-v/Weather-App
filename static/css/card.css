@@ -22,6 +22,7 @@ div.card{
     text-align: center;
     font-family: 'Poppins', sans-serif;
     border-radius: 15px;
+    margin: 10px;
 }
 
 div.card i{
