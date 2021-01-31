@@ -5,21 +5,30 @@
 
 {% endblock %}
 
+{%if search_list == [] %}
+	{%block error%}
+		<p>{{error}}</p>
+	{%endblock%}
 
-{%  block body %}
-<!-- <div>
-    <h1>The current temperature of {{city}},{{cnty}} is : {{ temp }} degrees Celsius</h1>
-</div> -->
+{%else%}
 
-{%for element in search_list:%}
-<div class="card">
-	<h3 class="city">{{element['name']}}, {{element['country']}}</h3>
-	<h3 class="temp">{{ element['temp'] }} °C </h3>
-<!-- 	<i class="fas fa-cloud-sun-rain"></i> -->
-	
-	<img src = "http://openweathermap.org/img/wn/{{element['icon']}}@2x.png" alt="{{element[desc]}} image">
-	<h3 class="desc">{{element['desc']}}</h3>
-</div>
-{%endfor%}
+	{%  block results %}
+	<!-- <div>
+	    <h1>The current temperature of {{city}},{{cnty}} is : {{ temp }} degrees Celsius</h1>
+	</div> -->
 
-{% endblock %}
+
+
+		{%for element in search_list:%}
+		<div class="card">
+			<h3 class="city">{{element['name']}}, {{element['country']}}</h3>
+			<h3 class="temp">{{ element['temp'] }} °C </h3>
+		<!-- 	<i class="fas fa-cloud-sun-rain"></i> -->
+			
+			<img src = "http://openweathermap.org/img/wn/{{element['icon']}}@2x.png" alt="{{element[desc]}} image">
+			<h3 class="desc">{{element['desc']}}</h3>
+		</div>
+		{%endfor%}
+
+	{% endblock %}
+{%endif%}
