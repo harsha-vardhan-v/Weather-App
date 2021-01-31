@@ -17,6 +17,8 @@ def temperature():
     #return json_object
     city_details['name']=json_object['name']
     city_details['country']=json_object['sys']['country']
+    city_details['desc'] = json_object['weather'][0]['description']
+    city_details['icon'] = json_object['weather'][0]['icon']
 
     searches.insert(0, city_details)
 

@@ -15,8 +15,10 @@
 <div class="card">
 	<h3 class="city">{{element['name']}}, {{element['country']}}</h3>
 	<h3 class="temp">{{ element['temp'] }} °C </h3>
-	<i class="fas fa-cloud-sun-rain"></i>
-	<h3 class="desc">Cloudy</h3>
+<!-- 	<i class="fas fa-cloud-sun-rain"></i> -->
+	
+	<img src = "http://openweathermap.org/img/wn/{{element['icon']}}@2x.png" alt="{{element[desc]}} image">
+	<h3 class="desc">{{element['desc']}}</h3>
 </div>
 {%endfor%}
 
