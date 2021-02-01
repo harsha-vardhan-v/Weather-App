@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/c91f3ee834.js" crossorigin="anonymous"></script>
 		{% block head %} {% endblock %}
 
@@ -18,15 +20,19 @@
 			<h1>Weather App</h1>
 
 			<form action="/temperature" method="POST" class="search">
-				<input type="text" name="cityname" placeholder="Enter a city">
+				<input type="text" name="cityname" placeholder="Enter a city" class="mainLoginInput">
 				<button type="submit">
 					<i class="fas fa-search"></i>
 				</button>
 			</form>
+			<div class = "error">
+				{%block error%}{%endblock%}
+			</div>
         </main>
 
         <section class = "results">
-        	{% block body %} {% endblock %}
+
+        	{% block results %} {% endblock %}
     	</section>
 	</body>
 </html>

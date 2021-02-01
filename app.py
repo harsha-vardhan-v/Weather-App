@@ -9,21 +9,31 @@ searches = []
 def temperature():
     city_details = {}
     c_name=request.form['cityname']
-    r = requests.get('http://api.openweathermap.org/data/2.5/weather?q='+c_name+'&appid=385e11117c5d7da81b09101750eb430f')
-    json_object=r.json()
-    temp_k=float(json_object['main']['temp'])
-    city_details['temp']=round(temp_k-273.0)
 
-    #return json_object
-    city_details['name']=json_object['name']
-    city_details['country']=json_object['sys']['country']
+    try:
+        r = requests.get('http://api.openweathermap.org/data/2.5/weather?q='+c_name+'&appid=385e11117c5d7da81b09101750eb430f')
+        json_object=r.json()
+        temp_k=float(json_object['main']['temp'])
+        city_details['temp']=round(temp_k-273.0)
 
-    searches.insert(0, city_details)
+        #return json_object
+        city_details['name']=json_object['name']
+        city_details['country']=json_object['sys']['country']
+        city_details['desc'] = json_object['weather'][0]['description']
+        city_details['icon'] = json_object['weather'][0]['icon']
 
-    if(len(searches)>7):
-        searches.pop(len(searches)-1)
+        searches.insert(0, city_details)
 
-    return render_template('temperature.html',search_list = searches)
+        if(len(searches)>7):
+            searches.pop(len(searches)-1)
+
+        return render_template('temperature.html',search_list = searches)
+
+    except KeyError:
+        return render_template('temperature.html', error = "Please enter valid city",search_list = searches)
+
+    except:
+        return render_template('temperature.html',search_list = [], error = "Unknown error occured")
 
 @app.route('/')
 def index():
