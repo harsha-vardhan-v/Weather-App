@@ -30,7 +30,7 @@ def temperature():
         return render_template('temperature.html',search_list = searches)
 
     except KeyError:
-        return render_template('temperature.html',search_list = [], error = "Please enter valid city")
+        return render_template('temperature.html', error = "Please enter valid city",search_list = searches)
 
     except:
         return render_template('temperature.html',search_list = [], error = "Unknown error occured")

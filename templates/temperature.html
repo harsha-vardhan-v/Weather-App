@@ -5,12 +5,11 @@
 
 {% endblock %}
 
-{%if search_list == [] %}
+
 	{%block error%}
 		<p>{{error}}</p>
 	{%endblock%}
 
-{%else%}
 
 	{%  block results %}
 	<!-- <div>
@@ -31,4 +30,3 @@
 		{%endfor%}
 
 	{% endblock %}
-{%endif%}
